@@ -1,0 +1,12 @@
+<header>Listing products</header>
+
+<ul class="products">
+  <%= for product <- @products do %>
+    <li>
+      <header><%= link product.name, to: product_path(@conn, :show, product.id) %></header>
+      <h4>$<%= product.price %></h4>
+      <p><%= product.description %></p>
+    </li>
+  <% end %>
+</ul>
+
