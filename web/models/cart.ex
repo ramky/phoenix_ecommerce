@@ -1,15 +1,14 @@
-defmodule PhoenixEcommerce.LineItem do
+defmodule PhoenixEcommerce.Cart do
   use PhoenixEcommerce.Web, :model
 
-  schema "line_items" do
-    field :quantity, :integer
-    belongs_to :product, PhoenixEcommerce.Product
-    belongs_to :cart, PhoenixEcommerce.Cart
+  schema "carts" do
+    field :uuid, Ecto.UUID, autogenerate: true
+    has_many :line_items, PhoenixEcommerce.LineItems
 
     timestamps
   end
 
-  @required_fields ~w(quantity product_id cart_id)
+  @required_fields ~w()
   @optional_fields ~w()
 
   @doc """
